@@ -7,10 +7,11 @@ const ActivitiesComponent = ( ) => {
      useEffect( async function (){
         try{
             const data = await api.makeApiRequest('/activities', 'GET');
-          console.log(data);
+            setActivityList(data)
+            console.log(data);
         }catch (error) {
           console.error(error);
-        }})
+        }},[activityList])
         
         
         const activitiesElements = activityList.map((activity,i) => 
@@ -19,11 +20,12 @@ const ActivitiesComponent = ( ) => {
         <p> Name :{activity.name} </p>
         <p>description:{activity.description} </p>
         </div>);
-
+      console.log(activitiesElements)
     return(
        <div className = 'activities-box'>
-             <h1>We are in the Activities page!</h1>
              {activitiesElements}
+             <h1>We are in the Activities page!</h1>
+           
        </div>
     )
 }
