@@ -4,9 +4,9 @@ import UsersComponent from './components/Users';
 import RoutinesComponent from './components/Routines';
 import ActivitiesComponent from './components/Activities';
 import HomeComponent from './components/Home';
+import Header from './components/Header';
 import {
     BrowserRouter as Router,
-    Link,
     Route,
     Switch,
 } from 'react-router-dom';
@@ -17,7 +17,8 @@ const App = (props) => {
     <div className="app">
             <div>
                 <Router>
-                {/* <Header/>  */}
+                  <Header/>
+ <div id="app"></div>
                 <main>
                     <Switch>
                         {/* <Route exact path="/"><LoginComponent setToken={setToken}/></Route> */}
