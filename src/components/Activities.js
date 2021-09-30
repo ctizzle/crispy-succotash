@@ -11,7 +11,7 @@ const ActivitiesComponent = ( ) => {
             console.log(data);
         }catch (error) {
           console.error(error);
-        }},[activityList])
+        }},[activityList]);
         
         
         const activitiesElements = activityList.map((activity,i) => 
@@ -31,3 +31,14 @@ const ActivitiesComponent = ( ) => {
 }
 
 export default ActivitiesComponent;
+
+// {
+//   routine.activities.map( activity => 
+//       <>
+//           <p>Activity Name: {activity.name}</p>
+//           <ul>Activity Description: {activity.description}</ul>
+//           <ul>Activity Duration: {activity.duration}</ul>
+//           <ul>Activity Count: {activity.count}</ul>
+//       </>
+//   )
+// } <== this was in our routine function for some reason

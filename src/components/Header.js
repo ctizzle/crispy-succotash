@@ -20,6 +20,7 @@ const Header = ({isLoggedIn, setToken}) => {
               <Link to={"/Home"}> Home </Link>
               <Link to= {"/Activities"}> Activities </Link>
               <Link to={"/Login"}> Login </Link>
+              <Link to={"/Register"}> Register </Link>
     </ul>
     </nav>
         </div>

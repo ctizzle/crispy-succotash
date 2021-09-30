@@ -6,7 +6,7 @@ import ActivitiesComponent from './components/Activities';
 import HomeComponent from './components/Home';
 import Header from './components/Header';
 import LoginComponent from './components/Login';
-// import RegisterComponent from './components/Register'
+import RegisterComponent from './components/Register'
 import TokenUtilities from './api/token'
 import {
     BrowserRouter as Router,
@@ -25,15 +25,15 @@ const App = (props) => {
   }, [token]);
 
   return (
-    <div className="app">
+    <div className="head">
             <div>
                 <Router>
-                  <Header/>
+                  <Header isLoggedIn = {isLoggedIn} setToken={setToken}/> 
  <div id="app"></div>
                 <main>
                     <Switch>
-                        <Route path="/login"><LoginComponent setToken = {setToken}/></Route>
-                        {/* <Route path="/register"><RegisterComponent setToken = {setToken}/></Route> */}
+                        <Route path="/Login"><LoginComponent setToken = {setToken}/></Route>
+                        <Route path="/register"><RegisterComponent/></Route>
                         <Route path="/home"><HomeComponent/></Route>
                         <Route path="/users"><UsersComponent/></Route>
                         <Route path="/routines"><RoutinesComponent/></Route>
