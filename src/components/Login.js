@@ -23,11 +23,15 @@ const LoginComponent = ({setToken}) => {
             // console.log(result.password);
             localStorage.setItem('token', result.token);
             console.log(result.message);
+            alert(result.message)
             
             setToken(result.token); 
             
           })
-          .catch(console.error);
+          .catch(error => {
+            console.error;
+            alert(error.message);
+          });
 
         
     }
@@ -41,6 +45,7 @@ const LoginComponent = ({setToken}) => {
 
     return (
         <div className="login">
+          <h1>Welcome to the Login Page!</h1>
             <form onSubmit={submitButton} >
                 <input type='text'
                        required

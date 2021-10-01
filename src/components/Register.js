@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 // import ReactDOM from 'react-dom';
 import api from '../api/api';
-import token from '../api/token';
+import TokenUtilities from '../api/token';
 
 
 const RegisterComponent = ({setToken}) => {
@@ -22,14 +22,17 @@ const RegisterComponent = ({setToken}) => {
           })
         }).then(response => response.json())
           .then(result => {
-            // console.log(result.password);
+            console.log(result.message)
             console.log(result.token);
             // (result.success)? alert("Registered successfully") :alert(" Already have an account")
             localStorage.setItem('token', result.token);
-            console.log(token)
+            // console.log(token)
             setToken(result.token); 
           })
-          .catch(console.error);
+          .catch(error => {
+            console.error;
+            alert(error.message);
+          });
     }
 
     const submitButton = async Event => {
@@ -41,6 +44,7 @@ const RegisterComponent = ({setToken}) => {
 
     return (
         <div className="register">
+          <h1>Welcome to the Register Page!</h1>
             <form onSubmit={submitButton} >
                 <input type='text'
                        required

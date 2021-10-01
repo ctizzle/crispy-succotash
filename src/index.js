@@ -33,7 +33,7 @@ const App = (props) => {
                 <main>
                     <Switch>
                         <Route path="/Login"><LoginComponent setToken = {setToken}/></Route>
-                        <Route path="/register"><RegisterComponent/></Route>
+                        <Route path="/Register"><RegisterComponent setToken = {setToken}/></Route>
                         <Route path="/home"><HomeComponent/></Route>
                         <Route path="/users"><UsersComponent/></Route>
                         <Route path="/routines"><RoutinesComponent/></Route>
