@@ -7,6 +7,7 @@ import HomeComponent from './components/Home';
 import Header from './components/Header';
 import LoginComponent from './components/Login';
 import RegisterComponent from './components/Register'
+import PostRoutinesComponent from './components/MyRoutines'
 import TokenUtilities from './api/token'
 import {
     BrowserRouter as Router,
@@ -38,6 +39,7 @@ const App = (props) => {
                         <Route path="/users"><UsersComponent/></Route>
                         <Route path="/routines"><RoutinesComponent/></Route>
                         <Route path="/activities"><ActivitiesComponent/></Route>
+                        <Route path="/MyRoutines"><PostRoutinesComponent/></Route>
                     </Switch>
         
                 </main>

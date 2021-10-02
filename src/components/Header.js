@@ -20,7 +20,7 @@ const Header = ({isLoggedIn, setToken}) => {
             isLoggedIn ?
            <nav className ='navigation'>
               <ul>
-                  <Link to= {"/Routines"}> My Routines </Link>
+                  <Link to= {"/MyRoutines"}> My Routines </Link>
                   <Link to= {"/Routines"}> Routines </Link>
                   <Link to={"/Home"}> Home </Link>
                   <Link to= {"/Activities"}> Activities </Link>

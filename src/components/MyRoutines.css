@@ -1,0 +1,14 @@
+.RoutineBox {
+    display: grid;
+    margin: 2vh;
+    margin-left: 25vh;
+    margin-right: 25vh;
+    padding: 5vh;
+    align-items: center;
+    background-color: #52DED7;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: fit-content;
+    border-radius: 3vh;
+}
