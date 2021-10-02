@@ -53,7 +53,8 @@ const PostRoutinesComponent = () => {
         const URL = `http://fitnesstrac-kr.herokuapp.com/api/users/${username}/routines`
         const routineResponse = await fetch(URL, {
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${grabTokenFromLocal}`
             }
         })
         const routines = await routineResponse.json()
