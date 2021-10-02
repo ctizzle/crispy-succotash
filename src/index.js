@@ -38,7 +38,6 @@ const App = (props) => {
                         <Route path="/users"><UsersComponent/></Route>
                         <Route path="/routines"><RoutinesComponent/></Route>
                         <Route path="/activities"><ActivitiesComponent/></Route>
-                        {/* <Route path="/Logout"><LogoutComponent/></Route> */}
                     </Switch>
         
                 </main>

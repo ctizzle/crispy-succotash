@@ -1,10 +1,13 @@
 
 import React, {useState, useEffect} from 'react';
-import ReactDOM from 'react-dom';
+import {useHistory} from 'react-router-dom';
 import api from '../api/api';
 import TokenUtilities from '../api/token'
 
 const LoginComponent = ({setToken}) => {
+    
+    let history = useHistory();
+
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
 
@@ -31,6 +34,9 @@ const LoginComponent = ({setToken}) => {
           .catch(error => {
             console.error;
             alert(error.message);
+          })
+          .finally(() => {
+            history.push('/Home');
           });
 
         
