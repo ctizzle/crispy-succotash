@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import api from '../api/api';
 import TokenUtilities from '../api/token'
+import './loginboxes.css'
 
 const LoginComponent = ({setToken}) => {
     
@@ -50,7 +51,7 @@ const LoginComponent = ({setToken}) => {
 
 
     return (
-        <div className="login">
+        <div className="activity-form">
           <h1>Welcome to the Login Page!</h1>
             <form onSubmit={submitButton} >
                 <input type='text'

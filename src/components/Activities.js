@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 // import ReactDOM from 'react-dom';
 import api from '../api/api';
 import './routineactivity.css';
+import './loginboxes.css'
 
 const ActivitiesComponent = ( ) => {
      const [activityList, setActivityList] = useState([]);
@@ -45,8 +46,11 @@ const ActivitiesComponent = ( ) => {
       e.preventDefault();
       await api.makeApiRequest('/activities', 'POST', activity);
       history.push;
+      if(!'authorization'){
+          alert('you have to be logged in to post!')
+      }
   }
-  return (
+  return (<div>
       <div className="activity-form">
           <form onSubmit={onSubmit}>
               <div>
@@ -61,10 +65,12 @@ const ActivitiesComponent = ( ) => {
                   <button>Submit</button>
               </div>
           </form>
+          </div>
           <div className = 'main-box'>
              {activitiesElements}
              <h1>We are in the Activities page!</h1>
        </div>
+      
       </div>
   )
 }

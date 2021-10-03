@@ -1,23 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius+Unicase&display=swap');
 .main-box{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(4,1fr);
         background-color: #52DED7;
-        margin: 2vh;
-        margin-left: 25vh;
-        margin-right: 25vh;
-        padding: 5vh;
         align-items: center;
         justify-content: center;
         text-align: center;
         height: fit-content;
         border-radius: 10%;
-      
+
     } 
 
 h1 h2{
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Delius Unicase', cursive;
     }
 p{
     font-family: 'Roboto', sans-serif;

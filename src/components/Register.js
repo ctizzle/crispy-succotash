@@ -39,8 +39,8 @@ const RegisterComponent = ({setToken}) => {
 
 
     return (
-        <div className="register">
-          <h1>Welcome to the Register Page!</h1>
+        <div className="activity-form">
+          
             <form onSubmit={submitButton} >
                 <input type='text'
                        required
@@ -48,14 +48,16 @@ const RegisterComponent = ({setToken}) => {
                        value={name}
                        onChange={(event) => setName(event.currentTarget.value) }
                        placeholder='username'/>
-                <input type='password'
+               <input type='password'
                         required
                         name='password'
                         value={password}
                         onChange={(event) => setPassword(event.currentTarget.value) }
-                        placeholder='password'/>
+                        placeholder='password'/> 
                 <button>Submit</button>
+                
             </form>
+            
         </div>
     )
 }
