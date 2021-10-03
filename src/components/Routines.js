@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-// import ReactDOM from 'react-dom';
 import api from '../api/api';
 import './routineactivity.css';
 import './MyRoutines'

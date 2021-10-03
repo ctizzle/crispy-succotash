@@ -1,7 +1,4 @@
 import React, {useState, useEffect} from 'react';
-// import ReactDOM from 'react-dom';
-import api from '../api/api';
-import TokenUtilities from '../api/token';
 
 
 const RegisterComponent = ({setToken}) => {
@@ -26,7 +23,6 @@ const RegisterComponent = ({setToken}) => {
             console.log(result.token);
             // (result.success)? alert("Registered successfully") :alert(" Already have an account")
             localStorage.setItem('token', result.token);
-            // console.log(token)
             setToken(result.token); 
           })
           .catch(error => {

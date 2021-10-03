@@ -1,14 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {useHistory} from 'react-router-dom';
-import api from '../api/api';
 import './MyRoutines.css'
 
 const PostRoutinesComponent = () => {
     const [name, setName] = useState('');
     const [goal, setGoal] = useState('');
     const [myRoutinesList, setMyRoutinesList] = useState([]);
-
-    // const history = useHistory();
 
     const PostRoutine = function(name, goal) {
         const grabTokenFromLocal= localStorage.getItem('token');
@@ -34,7 +30,7 @@ const PostRoutinesComponent = () => {
       .catch(console.error);
     }
     
-
+     
     const FetchRoutine = async function(name, goal) {
         const grabTokenFromLocal= localStorage.getItem('token');
         console.log(grabTokenFromLocal)
@@ -89,7 +85,6 @@ const PostRoutinesComponent = () => {
                         <li>Name: <input type = "text"  name = "name" id="name" value={name} onChange={(event) => setName(event.currentTarget.value) }></input></li>
                         <li>Goal: <input type = "text" name ="goal" id="goal" value={goal} onChange={(event) => setGoal(event.currentTarget.value) }></input></li>
                     </ul>
-                {/* <input  type ="submit" value = "Add New Post" /> */}
                 <button>Add New Routine</button>
                 </form>
             </div>
