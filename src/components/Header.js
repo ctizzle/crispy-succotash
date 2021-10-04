@@ -22,7 +22,7 @@ const Header = ({isLoggedIn, setToken}) => {
               <ul>
                   <Link to= {"/MyRoutines"}> My Routines </Link>
                   <Link to= {"/Routines"}> Routines </Link>
-                  <Link to={"/Home"}> Home </Link>
+                  <Link to={"/"}> Home </Link>
                   <Link to= {"/Activities"}> Activities </Link>
                   <button className='logout' onClick={handleLogout}>Logout</button>
               </ul>
@@ -30,7 +30,7 @@ const Header = ({isLoggedIn, setToken}) => {
              <nav className ='navigation'>
              <ul>
                  <Link to= {"/Routines"}> Routines </Link>
-                 <Link to={"/Home"}> Home </Link>
+                 <Link to={"/"}> Home </Link>
                  <Link to= {"/Activities"}> Activities </Link>
                  <Link to={"/Login"}> Login </Link>
                  <Link to={"/Register"}> Register </Link>

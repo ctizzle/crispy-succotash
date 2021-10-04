@@ -33,7 +33,7 @@ const App = () => {
                     <Switch>
                         <Route path="/Login"><LoginComponent setToken = {setToken}/></Route>
                         <Route path="/Register"><RegisterComponent setToken = {setToken}/></Route>
-                        <Route path="/home"><HomeComponent/></Route>
+                        <Route exact path="/"><HomeComponent/></Route>
                         <Route path="/routines"><RoutinesComponent/></Route>
                         <Route path="/activities"><ActivitiesComponent/></Route>
                         <Route path="/MyRoutines"><PostRoutinesComponent/></Route>

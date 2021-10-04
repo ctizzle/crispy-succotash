@@ -40,7 +40,7 @@ const RegisterComponent = ({setToken}) => {
 
     return (
         <div className="activity-form">
-          
+          <h1>First time user? Sign up!</h1>
             <form onSubmit={submitButton} >
                 <input type='text'
                        required

@@ -5,6 +5,12 @@ const PostRoutinesComponent = () => {
     const [name, setName] = useState('');
     const [goal, setGoal] = useState('');
     const [myRoutinesList, setMyRoutinesList] = useState([]);
+    const [showForm, setShowForm] = useState(false);
+    // const [buttonText, setButtonText] = useState("Edit Routine")
+
+    /*************************************
+    *     For creating a new routine
+    **************************************/
 
     const PostRoutine = function(name, goal) {
         const grabTokenFromLocal= localStorage.getItem('token');
@@ -27,13 +33,19 @@ const PostRoutinesComponent = () => {
       .then(result => {
       console.log(result);
       })
-      .catch(console.error);
+      .catch(() => {
+          console.error
+          alert('This routine name is already in use! Try a differnt name')  
+        });
     }
     
-     
+    /*************************************
+    *   For grabbing the users routines
+    **************************************/
+    
     const FetchRoutine = async function(name, goal) {
         const grabTokenFromLocal= localStorage.getItem('token');
-        console.log(grabTokenFromLocal)
+        // console.log(grabTokenFromLocal)
         
 
       try {
@@ -45,7 +57,7 @@ const PostRoutinesComponent = () => {
             }
         })
         const {username} = await response.json()
-        console.log(username)
+        // console.log(username)
         const URL = `http://fitnesstrac-kr.herokuapp.com/api/users/${username}/routines`
         const routineResponse = await fetch(URL, {
             headers: {
@@ -63,18 +75,123 @@ const PostRoutinesComponent = () => {
 
     useEffect(FetchRoutine, [])
     
+
+    /*************************************
+    *        For Updating Routine
+    **************************************/
+
+    const UpdateRoutine = async function (name, goal, routineId) {
+        const grabTokenFromLocal= localStorage.getItem('token');
+        try {
+            const updateURL = `http://fitnesstrac-kr.herokuapp.com/api/routines/${routineId}`
+            await fetch(updateURL, {
+                method: "PATCH",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${grabTokenFromLocal}`
+                },
+                body: JSON.stringify({
+                    name,
+                    goal
+                })   
+            })
+        } catch (error) {
+            console.error
+        }
+    }
+
+    /*************************************
+    *         For Deleting Routine
+    **************************************/
+    
+    const DeleteRoutine = async function(routineId) {
+        const grabTokenFromLocal= localStorage.getItem('token');
+        console.log(grabTokenFromLocal)
+
+        try {
+            const URL = `http://fitnesstrac-kr.herokuapp.com/api/routines/${routineId}`
+            const deletedResponse = await fetch(URL, {
+                method: "DELETE",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${grabTokenFromLocal}`
+                }
+            })
+            const deleted = await deletedResponse.json()
+            if(deleted.success) {
+                alert(`"${deleted.name}" has been successfully deleted"`)
+            }
+            
+        } catch (error) {
+            console.error
+        }
+    }
+
+    /*************************************
+    *           Helper Functions
+    **************************************/
+
     const submitButton = async Event => {
         Event.preventDefault();
         console.log(name, goal);
         await PostRoutine(name, goal);
     }
 
+    const updateButton = async Event => {
+        if (confirm('Are you sure you want to update this routine?')) {
+            Event.preventDefault();
+            await UpdateRoutine(name, goal, Event.currentTarget.value);
+            window.location.reload();
+        }
+    }
+
+    const deleteButton = async Event => {
+        if (confirm('Are you sure you want to delete this routine?')) {
+            Event.preventDefault();
+            await DeleteRoutine(Event.currentTarget.value);
+            window.location.reload();
+        }
+    }
+     
+    const showFormAppear = () => {
+        setShowForm(!showForm)
+    }
+
+
     const routineElements = myRoutinesList.map((routine,i) => 
         <div key={`act-id-${i}`}>  
             <h2>Name: {routine.name} </h2>
             <p>Goal: {routine.goal} </p>
+            <button value={routine.id} onClick={showFormAppear}>Edit Routine</button>
+            { showForm && (
+                <div>
+                    <form>
+                        <div>
+                            <label>Name: </label>
+                            <input type='text' 
+                                name='routinename' 
+                                value={name}
+                                onChange={(event) => setName(event.currentTarget.value)} />
+                        </div>
+                        <div>
+                            <label>Goal: </label>
+                            <input type='text'
+                                name='goal'
+                                value={goal}
+                                onChange={(event) => setGoal(event.currentTarget.value)} />
+                        </div>
+                        <div>
+                            <button value={routine.id} onClick={updateButton}>Update</button>
+                            <button onClick={showFormAppear}>Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            )}
+            <button value={routine.id} onClick={deleteButton}>Delete Routine</button>
         </div>);
-      console.log(routineElements)
+
+    
+    
 
     return (
         <div>

@@ -37,7 +37,7 @@ const LoginComponent = ({setToken}) => {
             alert(error.message);
           })
           .finally(() => {
-            history.push('/Home');
+            history.push('/');
           });
 
         
@@ -52,7 +52,7 @@ const LoginComponent = ({setToken}) => {
 
     return (
         <div className="activity-form">
-          <h1>Welcome to the Login Page!</h1>
+          <h1>Welcome back! Please login!</h1>
             <form onSubmit={submitButton} >
                 <input type='text'
                        required
